@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Авторизация",
+    "url": "?point=1",
+    "groups": ["Guest", "Worker"]
+  },
+  {
+    "name": "Запрос 1",
+    "url": "?point=2",
+    "groups": ["Worker"]
+  },
+  {
+    "name": "Выход",
+    "url": "?point=3",
+    "groups": ["Guest", "Worker"]
+  }
+]

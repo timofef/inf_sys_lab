@@ -1,0 +1,14 @@
+{
+	"Guest":{
+		"host":"127.0.0.1",
+		"user":"Guest",
+		"password":"user_guest",
+		"database":"lab1"
+	},
+	"Worker":{
+		"host":"127.0.0.1",
+		"user":"Worker",
+		"password":"qwerty",
+		"database":"lab1"
+	}
+}
