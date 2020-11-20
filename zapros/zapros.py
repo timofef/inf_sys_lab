@@ -5,7 +5,7 @@ from check_auth import check_query_access
 zapros_blueprint = Blueprint('zapros_blueprint', __name__, template_folder='templates')
 
 @zapros_blueprint.route('/', methods=['GET', 'POST'])
-@check_query_access
+@check_query_access("2")
 def input():
     if 'send' in request.form and request.form['send'] == 'send':
         data = request.form.get('department')

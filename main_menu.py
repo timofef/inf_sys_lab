@@ -14,9 +14,9 @@ with open('data_files/query_access.json', encoding='utf-8') as f:
 app = Flask(__name__)
 app.secret_key = "NeverGonnaGiveYouUp"
 app.config['dbconfig'] = dbconfig
-app.config['queryaccess'] = query_access_items
+app.config['query_access'] = query_access_items
 
-app.register_blueprint(zapros_blueprint, url_prefix='/zapros1')
+app.register_blueprint(zapros_blueprint, url_prefix='/request1')
 app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
 

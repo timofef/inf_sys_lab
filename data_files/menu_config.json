@@ -1,17 +1,14 @@
 [
   {
     "name": "Авторизация",
-    "url": "?point=1",
-    "groups": ["Guest", "Worker"]
+    "url": "?point=1"
   },
   {
     "name": "Запрос 1",
-    "url": "?point=2",
-    "groups": ["Worker"]
+    "url": "?point=2"
   },
   {
     "name": "Выход",
-    "url": "?point=3",
-    "groups": ["Guest", "Worker"]
+    "url": "?point=3"
   }
 ]
