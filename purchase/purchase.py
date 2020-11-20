@@ -62,7 +62,7 @@ def put_into_cart(amount, choice_id, choice_name):
 
 
 def get_full_cart_len():
-    if 'cart' not in session or not session['cart']:
+    if 'cart' not in session:
         session['cart'] = []
         return 0
 
