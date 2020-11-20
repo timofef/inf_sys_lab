@@ -1,7 +1,7 @@
 from flask import Blueprint, redirect, render_template, abort, session, request, current_app
 import json
 from DBCM import UseDatabase
-from check_auth import check_query_access
+from check_auth import check_access
 
 auth_blueprint = Blueprint('auth_blueprint', __name__, template_folder='templates')
 

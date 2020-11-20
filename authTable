@@ -13,3 +13,11 @@ GRANT SELECT ON worker TO 'Worker'@'localhost';
 
 create user 'Guest'@'localhost' identified by 'user_guest';
 GRANT SELECT ON user_groups TO 'Guest'@'localhost';
+
+create user 'Manager'@'localhost' identified by 'qwerty';
+GRANT SELECT, INSERT ON cart TO 'Manager'@'localhost';
+GRANT DROP ON cart TO 'Manager'@'localhost';
+
+CREATE TABLE cart (id_cart INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, id_catalog INTEGER, name VARCHAR(50), amount INTEGER);
+
+CREATE TABLE catalog ( id_catalog INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50), price INTEGER);

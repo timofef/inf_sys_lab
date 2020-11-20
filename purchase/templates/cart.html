@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Каталог</title>
+</head>
+<body bgcolor=silver text=black>
+<h2>Корзина</h2>
+<br><br>
+{% if cart %}
+    <table border=1 width=60%>
+    <tr>
+        <td align=center> Название</td>
+        <td align=center> Кол-во</td>
+    </tr>
+    {% for row in cart %}
+        <tr>
+            <td align=center>{{ row.choice_name }}</td>
+            <td align=center>{{ row.amount }}</td>
+            <form action="" method=POST>
+                <input type=hidden name=item_to_delete value='{{ row.choice_name }}'>
+                <td><input type=submit value='Удалить' name='delete'></td>
+            </form>
+        </tr>
+    {% endfor %}
+{% else %}
+    <p>Корзина пуста</p>
+{% endif %}
+<a href="/purchase">Назад в каталог</a>
+</body>
+</html>

@@ -10,5 +10,11 @@
 		"user":"Worker",
 		"password":"qwerty",
 		"database":"lab1"
+	},
+	"Manager":{
+		"host":"127.0.0.1",
+		"user":"Manager",
+		"password":"qwerty",
+		"database":"lab1"
 	}
 }

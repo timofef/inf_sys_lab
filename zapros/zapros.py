@@ -1,18 +1,18 @@
 from DBCM import UseDatabase
 from flask import render_template, request, Blueprint, current_app
-from check_auth import check_query_access
+from check_auth import check_access
 
 zapros_blueprint = Blueprint('zapros_blueprint', __name__, template_folder='templates')
 
 @zapros_blueprint.route('/', methods=['GET', 'POST'])
-@check_query_access("2")
+@check_access("2")
 def input():
     if 'send' in request.form and request.form['send'] == 'send':
         data = request.form.get('department')
         if data:
             with UseDatabase(current_app.config['dbconfig']["Worker"]) as cursor:
                 workers = get_workers(cursor, data)
-            return render_template('result.html', workers=workers)
+            return render_template('results.html', workers=workers)
         else:
             return render_template('input.html')
     else:
