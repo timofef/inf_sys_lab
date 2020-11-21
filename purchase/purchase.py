@@ -8,7 +8,7 @@ purchase_blueprint = Blueprint('purchase_blueprint', __name__, template_folder='
 @purchase_blueprint.route('/', methods=['GET', 'POST'])
 @check_access("3")
 def purchase():
-    #session['cart'].clear()
+
     cart_size = get_full_cart_len()
     with UseDatabase(current_app.config['dbconfig']["Manager"]) as cursor:
         catalog = show_catalog(cursor)
@@ -16,7 +16,6 @@ def purchase():
             choice_name = request.form.get('choice_name')
             choice_id = request.form.get('choice_id')
             amount = request.form.get('amount')
-            print(amount, choice_id, choice_name)
             put_into_cart(amount, choice_id, choice_name)
             cart_size = get_full_cart_len()
             return render_template('catalog.html', catalog=catalog, in_cart=cart_size)
@@ -24,9 +23,12 @@ def purchase():
         elif 'show_cart' in request.form and request.form['show_cart'][0:16] == "Показать корзину":
             return render_template('cart.html', cart=session['cart'])
 
-        elif 'exit' in request.form and request.form['exit'] == "Оформить заказ":
+        elif 'purchase' in request.form and request.form['purchase'] == "Оформить заказ":
+            return render_template('order.html', cart=session['cart'])
+
+        elif 'exit' in request.form and request.form['exit'] == "Купить":
             save_cart(cursor)
-            return render_template('catalog.html', catalog=catalog, in_cart=cart_size)
+            return render_template('res.html')
 
         elif 'delete' in request.form and request.form['delete'] == "Удалить":
             item_to_delete = request.form.get('item_to_delete')
